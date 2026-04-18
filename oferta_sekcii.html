@@ -1,0 +1,898 @@
+<!doctype html>
+<html lang="bg">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Оферта – секции 02, 03, 04</title>
+		<style>
+			/* ============================================================
+     СТИЛ — Digital Effect оферта
+     Цветова палитра:
+       --primary: основен син акцент
+       --dark: черен фон (cover, таблици, invest box)
+       --text: основен текстов цвят
+       --muted: второстепенен текст
+     ============================================================ */
+
+			:root {
+				--primary: #f26522;
+				--primary-light: #f59c1a;
+				--primary-bg: #eff6ff;
+				--dark: #0a0a0a;
+				--text: #0a0a0a;
+				--text-body: #2a2a2a;
+				--muted: #666;
+				--border: #e5e5e5;
+				--bg-light: #f8f8f8;
+				--success: #16a34a;
+				--success-bg: #f0fdf4;
+				--danger: #ef4444;
+			}
+
+			@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
+
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			html,
+			body {
+				font-family:
+					"Inter",
+					-apple-system,
+					sans-serif;
+				color: var(--text);
+				background: #f5f5f5;
+				line-height: 1.5;
+				font-size: 10.5pt;
+			}
+
+			/* Всяка "страница" е отделен div — лесно се отделя/копира */
+			.page {
+				width: 210mm;
+				min-height: 297mm;
+				padding: 15mm;
+				margin: 20px auto;
+				background: #fff;
+				box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+				position: relative;
+			}
+
+			/* ============================================================
+     ТИПОГРАФИЯ
+     ============================================================ */
+
+			.section-label {
+				display: inline-block;
+				font-size: 8pt;
+				color: var(--primary);
+				font-weight: 600;
+				letter-spacing: 1.5px;
+				text-transform: uppercase;
+				margin-bottom: 6px;
+			}
+
+			h1 {
+				font-size: 20pt;
+				font-weight: 800;
+				letter-spacing: -0.7px;
+				line-height: 1.1;
+				margin-bottom: 12px;
+			}
+
+			h2 {
+				font-size: 12.5pt;
+				font-weight: 700;
+				letter-spacing: -0.3px;
+				margin: 14px 0 7px;
+			}
+
+			h3 {
+				font-size: 10.5pt;
+				font-weight: 600;
+				margin-bottom: 5px;
+			}
+
+			p {
+				margin-bottom: 8px;
+				color: var(--text-body);
+			}
+
+			.lead {
+				font-size: 10pt;
+				color: #444;
+				line-height: 1.55;
+				margin-bottom: 12px;
+			}
+
+			.small-note {
+				font-size: 8pt;
+				color: var(--muted);
+				font-style: italic;
+			}
+
+			.inline-price {
+				font-weight: 700;
+				color: var(--text);
+			}
+
+			/* ============================================================
+     УСЛУГИ — карти
+     ============================================================ */
+
+			.svc-card {
+				border: 1px solid var(--border);
+				border-radius: 9px;
+				padding: 13px 15px;
+				margin-bottom: 9px;
+				position: relative;
+				background: #fff;
+			}
+
+			.svc-card.featured {
+				border: 2px solid var(--dark);
+				background: #fafafa;
+			}
+
+			.svc-card .badge {
+				position: absolute;
+				top: -8px;
+				right: 12px;
+				background: var(--primary);
+				color: #fff;
+				font-size: 7pt;
+				font-weight: 600;
+				padding: 3px 9px;
+				border-radius: 100px;
+				text-transform: uppercase;
+				letter-spacing: 0.5px;
+			}
+
+			.svc-card .badge.rec {
+				background: var(--dark);
+			}
+			.svc-card .badge.free {
+				background: var(--success);
+			}
+
+			.svc-head {
+				display: flex;
+				justify-content: space-between;
+				align-items: flex-start;
+				gap: 10px;
+				margin-bottom: 6px;
+			}
+
+			.svc-title {
+				font-size: 11.5pt;
+				font-weight: 700;
+			}
+
+			.svc-num {
+				font-size: 8pt;
+				color: var(--primary);
+				font-weight: 600;
+				letter-spacing: 1px;
+				margin-bottom: 2px;
+			}
+
+			.svc-price {
+				text-align: right;
+				flex-shrink: 0;
+			}
+
+			.svc-price .amount {
+				font-size: 14pt;
+				font-weight: 800;
+				letter-spacing: -0.5px;
+				line-height: 1;
+			}
+
+			.svc-price .amount-sm {
+				font-size: 10.5pt;
+				font-weight: 700;
+				line-height: 1;
+			}
+
+			.svc-price .period {
+				font-size: 8pt;
+				color: var(--muted);
+				margin-top: 2px;
+			}
+
+			.svc-desc {
+				font-size: 9pt;
+				color: #444;
+				margin-bottom: 7px;
+				line-height: 1.45;
+			}
+
+			.svc-list {
+				list-style: none;
+				padding: 0;
+				columns: 2;
+				column-gap: 18px;
+			}
+
+			.svc-list li {
+				padding: 2px 0 2px 14px;
+				position: relative;
+				font-size: 8.8pt;
+				color: #333;
+				line-height: 1.4;
+				break-inside: avoid;
+			}
+
+			.svc-list li::before {
+				content: "";
+				position: absolute;
+				left: 0;
+				top: 8px;
+				width: 8px;
+				height: 2px;
+				background: var(--primary);
+			}
+
+			/* ============================================================
+     ADD-ON КУТИЯ (криейтив)
+     ============================================================ */
+
+			.addon-box {
+				background: #fafafa;
+				border: 1px dashed #d0d0d0;
+				border-radius: 8px;
+				padding: 11px 14px;
+				margin: 8px 0;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				gap: 12px;
+			}
+
+			.addon-box .addon-info {
+				flex: 1;
+			}
+
+			.addon-box .addon-title {
+				font-size: 10pt;
+				font-weight: 600;
+				color: var(--text);
+				margin-bottom: 2px;
+			}
+
+			.addon-box .addon-desc {
+				font-size: 8.5pt;
+				color: var(--muted);
+				line-height: 1.4;
+			}
+
+			.addon-box .addon-price {
+				font-size: 12pt;
+				font-weight: 800;
+				color: var(--text);
+				white-space: nowrap;
+			}
+
+			.addon-box .addon-price-sub {
+				font-size: 7.5pt;
+				color: var(--muted);
+				font-weight: 400;
+				text-align: right;
+				margin-top: 1px;
+			}
+
+			/* ============================================================
+     ТАБЛИЦА С КОМИСИОННИ
+     ============================================================ */
+
+			.comm-table {
+				width: 100%;
+				border-collapse: collapse;
+				margin: 10px 0;
+				font-size: 9.5pt;
+			}
+
+			.comm-table th {
+				background: var(--dark);
+				color: #fff;
+				padding: 9px 11px;
+				text-align: left;
+				font-weight: 600;
+				font-size: 8.5pt;
+				text-transform: uppercase;
+				letter-spacing: 0.5px;
+			}
+
+			.comm-table th:last-child {
+				text-align: right;
+			}
+
+			.comm-table td {
+				padding: 9px 11px;
+				border-bottom: 1px solid var(--border);
+			}
+
+			.comm-table td:last-child {
+				text-align: right;
+				font-weight: 700;
+				color: var(--primary);
+			}
+
+			.comm-table tr:last-child td {
+				border-bottom: none;
+			}
+
+			/* ============================================================
+     ОБОБЩЕНИЕ НА ИНВЕСТИЦИЯТА (тъмна кутия)
+     ============================================================ */
+
+			.invest-box {
+				background: var(--dark);
+				color: #fff;
+				border-radius: 10px;
+				padding: 16px 18px;
+				margin: 12px 0;
+			}
+
+			.invest-box h2 {
+				color: #fff;
+				margin-top: 0;
+				margin-bottom: 10px;
+			}
+
+			.invest-row {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				padding: 6px 0;
+				border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+				font-size: 9.5pt;
+			}
+
+			.invest-row:last-of-type {
+				border-bottom: none;
+			}
+			.invest-row .label-col {
+				color: #cfcfcf;
+			}
+			.invest-row .val-col {
+				font-weight: 700;
+				color: #fff;
+			}
+
+			.invest-row.optional .label-col,
+			.invest-row.optional .val-col {
+				color: #888;
+				font-style: italic;
+			}
+
+			.invest-row.free .label-col,
+			.invest-row.free .val-col {
+				color: #86efac;
+			}
+
+			.invest-total {
+				margin-top: 8px;
+				padding-top: 12px;
+				border-top: 2px solid var(--primary);
+				display: flex;
+				justify-content: space-between;
+				align-items: baseline;
+			}
+
+			.invest-total-lbl {
+				font-size: 9.5pt;
+				color: #cfcfcf;
+				text-transform: uppercase;
+				letter-spacing: 1px;
+			}
+
+			.invest-total-val {
+				font-size: 20pt;
+				font-weight: 800;
+				color: #fff;
+			}
+
+			.invest-total-val .accent {
+				color: var(--primary-light);
+			}
+
+			.invest-note {
+				font-size: 7.5pt;
+				color: #888;
+				margin-top: 6px;
+				line-height: 1.5;
+			}
+
+			/* ============================================================
+     TIMELINE (процес)
+     ============================================================ */
+
+			.timeline {
+				margin: 10px 0;
+			}
+
+			.tl-item {
+				display: flex;
+				gap: 12px;
+				padding: 7px 0;
+				border-bottom: 1px solid #f0f0f0;
+			}
+
+			.tl-item:last-child {
+				border-bottom: none;
+			}
+
+			.tl-num {
+				width: 28px;
+				height: 28px;
+				background: var(--dark);
+				color: #fff;
+				border-radius: 50%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-weight: 700;
+				font-size: 9.5pt;
+				flex-shrink: 0;
+			}
+
+			.tl-content h3 {
+				margin-bottom: 2px;
+				font-size: 10pt;
+			}
+
+			.tl-content p {
+				font-size: 9pt;
+				color: #555;
+				margin-bottom: 0;
+				line-height: 1.45;
+			}
+
+			/* ============================================================
+     "ЗАЩО НИЕ" — карти
+     ============================================================ */
+
+			.why-grid {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 8px;
+				margin: 10px 0;
+			}
+
+			.why-card {
+				border: 1px solid var(--border);
+				border-radius: 7px;
+				padding: 10px 12px;
+			}
+
+			.why-card .ico {
+				width: 22px;
+				height: 22px;
+				background: var(--dark);
+				color: var(--primary-light);
+				border-radius: 5px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 11pt;
+				font-weight: 800;
+				margin-bottom: 6px;
+			}
+
+			.why-card h3 {
+				font-size: 9.5pt;
+				margin-bottom: 3px;
+			}
+
+			.why-card p {
+				font-size: 8.5pt;
+				color: #555;
+				margin: 0;
+				line-height: 1.4;
+			}
+
+			/* ============================================================
+     CALLOUT — син и зелен вариант
+     ============================================================ */
+
+			.callout {
+				background: var(--primary-bg);
+				border-radius: 8px;
+				padding: 11px 13px;
+				margin: 10px 0;
+				border-left: 3px solid var(--primary);
+			}
+
+			.callout .label {
+				font-size: 7.5pt;
+				color: var(--primary);
+				font-weight: 700;
+				text-transform: uppercase;
+				letter-spacing: 1px;
+				margin-bottom: 4px;
+			}
+
+			.callout p {
+				font-size: 9pt;
+				color: #f26522;
+				margin: 0;
+				line-height: 1.5;
+			}
+
+			.callout.green {
+				background: var(--success-bg);
+				border-left-color: var(--success);
+			}
+
+			.callout.green .label {
+				color: var(--success);
+			}
+			.callout.green p {
+				color: #14532d;
+			}
+
+			/* ============================================================
+     FOOTER (на всяка страница)
+     ============================================================ */
+
+			.page-footer {
+				position: absolute;
+				bottom: 8mm;
+				left: 15mm;
+				right: 15mm;
+				display: flex;
+				justify-content: space-between;
+				font-size: 7.5pt;
+				color: #999;
+				padding-top: 6px;
+				border-top: 1px solid #f0f0f0;
+			}
+
+			.page-footer .brand {
+				font-weight: 600;
+				color: var(--text);
+			}
+
+			/* ============================================================
+     PRINT — за разпечатване като PDF от браузъра
+     ============================================================ */
+
+			@page {
+				size: A4;
+				margin: 0;
+			}
+
+			@media print {
+				body {
+					background: #fff;
+				}
+				.page {
+					margin: 0;
+					box-shadow: none;
+					page-break-after: always;
+				}
+				.page:last-child {
+					page-break-after: auto;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<!-- ============================================================
+     СТРАНИЦА 02 · КАКВО ПРЕДЛАГАМЕ
+     ============================================================ -->
+		<div class="page">
+			<span class="section-label">02 · Какво предлагаме</span>
+			<h1>Система от три пласта.<br />Не просто още реклама.</h1>
+			<p class="lead">
+				Вместо да ви продам още реклама върху счупена фуния, предлагам подход с реален
+				ефект: първо поправяме фунията, после увеличаваме трафика.
+			</p>
+
+			<!-- УСЛУГА 01 — Meta Ads -->
+			<div class="svc-card featured">
+				<span class="badge rec">Препоръчано за старт</span>
+				<div class="svc-head">
+					<div>
+						<div class="svc-num">УСЛУГА 01</div>
+						<div class="svc-title">Facebook / Instagram Ads Management</div>
+					</div>
+					<div class="svc-price">
+						<div class="amount">80€</div>
+						<div class="period">месечна такса</div>
+					</div>
+				</div>
+				<div class="svc-desc">
+					Пълно управление на Meta рекламна кампания, фокусирана върху генериране на
+					запитвания. Препоръчан стартов бюджет: <strong>5€/ден</strong> (≈150€/месец).
+					Meta работи отлично за локален таргетинг в София при услуги като
+					електроинсталация.
+				</div>
+				<ul class="svc-list">
+					<li>Стратегия и структура на кампанията</li>
+					<li>A/B тестване на 2-3 варианта</li>
+					<li>Ремаркетинг към посетители от Google Ads</li>
+					<li>Двуседмичен отчет с KPI</li>
+					<li>Оптимизация въз основа на данни</li>
+					<li>Прозрачна комуникация</li>
+				</ul>
+			</div>
+
+			<!-- ADD-ON — Създаване на съдържание -->
+			<div class="addon-box">
+				<div class="addon-info">
+					<div class="addon-title">+ Създаване на рекламно съдържание</div>
+					<div class="addon-desc">
+						Графика, видео и копирайтинг за рекламата. Производствен stack: Veo 3 / Grok
+						→ ElevenLabs → CapCut.
+					</div>
+				</div>
+				<div>
+					<div class="addon-price">от 30€</div>
+					<div class="addon-price-sub">на криейтив</div>
+				</div>
+			</div>
+
+			<!-- УСЛУГА 02 — AI Чатбот -->
+			<div class="svc-card">
+				<span class="badge free">14 дни безплатно</span>
+				<div class="svc-head">
+					<div>
+						<div class="svc-num">УСЛУГА 02</div>
+						<div class="svc-title">AI Чатбот за genovelectric.info</div>
+					</div>
+					<div class="svc-price">
+						<div class="amount-sm">Пробен период</div>
+						<div class="period">14 дни · без ангажимент</div>
+					</div>
+				</div>
+				<div class="svc-desc">
+					AI асистент в сайта, обучен върху вашите услуги и FAQ. Отговаря на посетителя в
+					реално време, дори когато сте на обект. Решава точно причината за 0-те
+					конверсии.
+				</div>
+				<ul class="svc-list">
+					<li>Обучен върху списъка услуги</li>
+					<li>Квалифициращи въпроси</li>
+					<li>Автоматично събиране на контакти</li>
+					<li>Email / SMS нотификации</li>
+					<li>24/7 работа</li>
+					<li>Интеграция с Messenger</li>
+				</ul>
+			</div>
+
+			<!-- УСЛУГА 03 — Google Ads -->
+			<div class="svc-card">
+				<span class="badge">Опционално</span>
+				<div class="svc-head">
+					<div>
+						<div class="svc-num">УСЛУГА 03</div>
+						<div class="svc-title">Поемане на Google Ads кампанията</div>
+					</div>
+					<div class="svc-price">
+						<div class="amount">100€</div>
+						<div class="period">месечна такса</div>
+					</div>
+				</div>
+				<div class="svc-desc">
+					Преструктуриране на текущата Google Ads кампания с правилен conversion tracking.
+					След пускане на чатбота, същият бюджет би трябвало да даде първите реални
+					конверсии.
+				</div>
+				<ul class="svc-list">
+					<li>Одит на текущите рекламни групи</li>
+					<li>Setup на conversion tracking</li>
+					<li>Негативни ключови думи</li>
+					<li>Call-only extensions за София</li>
+					<li>Оптимизация на бюджет</li>
+					<li>Sync с Meta за ремаркетинг</li>
+				</ul>
+			</div>
+
+			<div class="page-footer">
+				<span class="brand">Digital Effect</span>
+				<span>Оферта · GenovElectric · 02</span>
+			</div>
+		</div>
+
+		<!-- ============================================================
+     СТРАНИЦА 03 · ПЛАЩАТЕ ЗА РЕЗУЛТАТ
+     ============================================================ -->
+		<div class="page">
+			<span class="section-label">03 · Прозрачно ценообразуване</span>
+			<h1>Плащате за резултат,<br />не за усилие.</h1>
+			<p class="lead">
+				Нашата комисионна структура е прогресивна — колкото по-голям е рекламният бюджет,
+				толкова по-малък процент взимаме. Така стимулите са изравнени: искаме да растете,
+				защото растем заедно.
+			</p>
+
+			<h2>Комисионна върху рекламен бюджет</h2>
+			<table class="comm-table">
+				<thead>
+					<tr>
+						<th>Месечен рекламен бюджет</th>
+						<th>Нашият процент</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>До 1 000 € / месец</td>
+						<td>10%</td>
+					</tr>
+					<tr>
+						<td>От 1 001 € до 5 000 € / месец</td>
+						<td>8%</td>
+					</tr>
+					<tr>
+						<td>Над 5 000 € / месец</td>
+						<td>5%</td>
+					</tr>
+				</tbody>
+			</table>
+			<p class="small-note">
+				Комисионната се начислява върху реално изразходвания бюджет към Meta / Google, не
+				върху зададения лимит.
+			</p>
+
+			<h2>Пример: Ваш начален сценарий</h2>
+			<p style="font-size: 9.5pt">
+				При стартов бюджет <span class="inline-price">5€/ден за Meta</span> (≈150€/месец):
+				комисионна = 150 × 10% = <strong>15€</strong>. Общо плащане към Digital Effect = 80€
+				такса + 15€ комисионна = <strong>95€/месец</strong>. Плюс самият бюджет 150€
+				директно към Meta и еднократно 30€ за криейтив.
+			</p>
+
+			<!-- ОБОБЩЕНИЕ НА ИНВЕСТИЦИЯТА -->
+			<div class="invest-box">
+				<h2>Обобщение на инвестицията</h2>
+
+				<div class="invest-row">
+					<div class="label-col">Meta Ads Management — месечна такса</div>
+					<div class="val-col">80 € / месец</div>
+				</div>
+				<div class="invest-row">
+					<div class="label-col">Рекламен бюджет към Meta (5€/ден)</div>
+					<div class="val-col">~150 € / месец</div>
+				</div>
+				<div class="invest-row">
+					<div class="label-col">Комисионна върху бюджет (10%)</div>
+					<div class="val-col">15 € / месец</div>
+				</div>
+				<div class="invest-row">
+					<div class="label-col">Създаване на криейтив за реклама</div>
+					<div class="val-col">от 30 € / криейтив</div>
+				</div>
+				<div class="invest-row">
+					<div class="label-col">Мениджиране на социални мрежи</div>
+					<div>
+						<div class="val-col">от 100 € / 4 публикации</div>
+						<div class="val-col">от 180 € / 8 публикации</div>
+					</div>
+				</div>
+				<div class="invest-row free">
+					<div class="label-col">+ AI Чатбот (пробен период 14 дни)</div>
+					<div class="val-col">Безплатно</div>
+				</div>
+				<div class="invest-row optional">
+					<div class="label-col">+ Google Ads поемане (опция)</div>
+					<div class="val-col">100 € + комисионна</div>
+				</div>
+
+				<div class="invest-total">
+					<div class="invest-total-lbl">
+						Стартова месечна<br />инвестиция (Meta старт)
+					</div>
+					<div class="invest-total-val">~275<span class="accent">€</span></div>
+				</div>
+				<p class="invest-note">
+					≈ 80€ такса + 15€ комисионна + 150€ рекламен бюджет + 30€ криейтив (месец 1). От
+					месец 2 нататък — без разходите за криейтив, ако се ползват същите материали.
+					Минимум 3 месеца ангажимент.
+				</p>
+			</div>
+
+			<div class="page-footer">
+				<span class="brand">Digital Effect</span>
+				<span>Оферта · GenovElectric · 03</span>
+			</div>
+		</div>
+
+		<!-- ============================================================
+     СТРАНИЦА 04 · КАК РАБОТИМ
+     ============================================================ -->
+		<div class="page">
+			<span class="section-label">04 · Как работим</span>
+			<h1>От старт до първа<br />реклама — 10 дни.</h1>
+
+			<!-- TIMELINE -->
+			<div class="timeline">
+				<div class="tl-item">
+					<div class="tl-num">1</div>
+					<div class="tl-content">
+						<h3>Дни 1-3 · Одит и стратегия</h3>
+						<p>
+							Достъп до Meta Business Manager и Google Ads. Анализ на конкуренцията в
+							София. Дефиниране на 2-3 сегмента аудитория и conversion goals.
+						</p>
+					</div>
+				</div>
+				<div class="tl-item">
+					<div class="tl-num">2</div>
+					<div class="tl-content">
+						<h3>Дни 4-7 · Създаване на съдържание</h3>
+						<p>
+							Графика, копирайтинг, видео криейтиви за A/B тест. Всичко съгласувано с
+							вас преди публикуване.
+						</p>
+					</div>
+				</div>
+				<div class="tl-item">
+					<div class="tl-num">3</div>
+					<div class="tl-content">
+						<h3>Дни 8-10 · Стартиране на кампанията</h3>
+						<p>
+							Конфигурация на Pixel, setup на conversion events, пускане на първия
+							flight. Meta изисква 7 дни learning phase.
+						</p>
+					</div>
+				</div>
+				<div class="tl-item">
+					<div class="tl-num">4</div>
+					<div class="tl-content">
+						<h3>Седмица 3+ · Оптимизация и растеж</h3>
+						<p>
+							Двуседмичен отчет с ясни KPI: CPL, CTR, conversion rate. Постепенно
+							увеличаване на бюджета върху печелившите варианти.
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- БОНУС ЗА СТАРТА -->
+			<div class="callout green">
+				<div class="label">Бонус за старта</div>
+				<p>
+					AI чатботът се инсталира в сайта ви в рамките на първите 10 дни. 14-дневният
+					пробен период започва от момента на пускането му. В края на периода обсъждаме
+					какво е генерирал и решавате дали да продължи.
+				</p>
+			</div>
+
+			<!-- ЗАЩО DIGITAL EFFECT -->
+			<h2 style="margin-top: 14px">Защо Digital Effect</h2>
+			<div class="why-grid">
+				<div class="why-card">
+					<div class="ico">✓</div>
+					<h3>Стратегия преди изпълнение</h3>
+					<p>Не публикуваме за да запълваме календар. Всяка реклама има конкретен KPI.</p>
+				</div>
+				<div class="why-card">
+					<div class="ico">✓</div>
+					<h3>Прозрачни отчети</h3>
+					<p>Двуседмично получавате детайлен отчет. Никога не скриваме числата.</p>
+				</div>
+				<div class="why-card">
+					<div class="ico">✓</div>
+					<h3>Автоматизация като бонус</h3>
+					<p>Не сме стандартна SMM агенция — сме growth + automation партньор.</p>
+				</div>
+				<div class="why-card">
+					<div class="ico">✓</div>
+					<h3>Без скрити такси</h3>
+					<p>
+						Рекламният бюджет отива директно към Meta. Такса и комисионна са ясно
+						разделени.
+					</p>
+				</div>
+			</div>
+
+			<div class="page-footer">
+				<span class="brand">Digital Effect</span>
+				<span>Оферта · GenovElectric · 04</span>
+			</div>
+		</div>
+	</body>
+</html>
